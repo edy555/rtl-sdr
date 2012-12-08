@@ -576,7 +576,8 @@ double atofs(char* f)
 {
 	char* chop;
         double suff = 1.0;
-	chop = strndup(f, strlen(f)-1);
+	chop = strdup(f);
+        chop[strlen(chop)-1] = '\0';
 	switch (f[strlen(f)-1]) {
 		case 'G':
 			suff *= 1e3;
